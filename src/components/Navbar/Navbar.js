@@ -18,11 +18,13 @@ import Polygon from "./assets/polygon.png";
 import Logo from "./assets/logo.png";
 import Design from "./assets/shape.png";
 import { web3Class } from "../../Web3/web3Class";
+import { fetchAccountDetails } from "../../Web3/web3";
 
 const Navbar = () => {
-  const getDetails = () => {
+  const getDetails = async () => {
     let web3Instance = new web3Class();
-    web3Instance.showAddress();
+    let account = await web3Instance.fetchAccountDetails();
+    console.log(account);
   };
 
   useEffect(() => {
