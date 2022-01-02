@@ -19,17 +19,22 @@ import Logo from "./assets/logo.png";
 import Design from "./assets/shape.png";
 import { web3Class } from "../../Web3/web3Class";
 import { fetchAccountDetails } from "../../Web3/web3";
+import { useAccountChange } from "../../hooks";
 
 const Navbar = () => {
-  const getDetails = async () => {
-    let web3Instance = new web3Class();
-    let account = await web3Instance.fetchAccountDetails();
-    console.log(account);
-  };
+  const account = useAccountChange();
 
-  useEffect(() => {
-    getDetails();
-  }, []);
+  console.log(account);
+
+  // const getDetails = async () => {
+  //   let web3Instance = new web3Class();
+  //   let account = await web3Instance.fetchAccountDetails();
+  //   console.log(account);
+  // };
+
+  // useEffect(() => {
+  //   getDetails();
+  // }, []);
 
   return (
     <NavbarContainerWrapper>
